@@ -1,11 +1,12 @@
-import { formatDay } from "../utils/format-day";
-import { formatNumberPhone } from "../utils/format-number-phone";
+import EmployeesTable from "../components/employees-table";
 
 const Employees = () => {
   return (
-    <div>
-      <p>{formatDay("2019-12-02T00:00:00.000Z")}</p>
-      <span>{formatNumberPhone("5551234567890")}</span>
+    <div className="">
+      <div className="my-11 flex flex-col md:flex-row justify-between ">
+        <h2 className="text-xl font-medium">Funcionários</h2>
+      </div>
+      <EmployeesTable />
     </div>
   );
 };
