@@ -2,6 +2,8 @@ import { useState } from "react";
 import { TableCell, TableRow } from "./ui/table";
 import ChevronDown from "../assets/chevro-down.svg";
 import ChevronUp from "../assets/chevron-up.svg";
+import { formatDay } from "../utils/format-day";
+import { formatNumberPhone } from "../utils/format-number-phone";
 
 const EmployeesRowMobile = ({ employee }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,22 +15,24 @@ const EmployeesRowMobile = ({ employee }) => {
         className="shadow  data-[open=true]:shadow-none"
         onClick={() => setIsOpen(!isOpen)}
       >
-        <TableCell className="flex  ">
+        <TableCell className="flex  px-3 py-3  items-center ">
           <div className="flex items-center">
             <img
-              src={employee.photo}
+              src={employee.image}
               alt={employee.name}
-              className="w-12 h-12 rounded-full "
+              className="w-8 h-8 rounded-full "
             />
           </div>
         </TableCell>
-        <TableCell className="font-normal ">{employee.name}</TableCell>
-        <TableCell className="text-center md:hidden">
+        <TableCell className="font-normal px-3 py-2 ">
+          {employee.name}
+        </TableCell>
+        <TableCell className="text-center md:hidden   px-3 py-2">
           <button className="text-gray-500 cursor-pointer">
             {isOpen ? (
-              <img src={ChevronUp} alt="ChevronUp" />
+              <img src={ChevronUp} alt="ChevronUp" className="size-8" />
             ) : (
-              <img src={ChevronDown} alt="ChevronUp" />
+              <img src={ChevronDown} alt="ChevronUp" className="size-8" />
             )}
           </button>
         </TableCell>
@@ -51,13 +55,13 @@ const EmployeesRowMobile = ({ employee }) => {
                 </div>
                 <div className="flex flex-col space-y-4  mb-8 text-end">
                   <span className=" border-b border-b-gray-20/50 font-normal  border-dotted ">
-                    {employee.role}
+                    {employee.job}
                   </span>
                   <span className=" border-b border-b-gray-20/50  font-normal  border-dotted">
-                    {employee.admissionDate}
+                    {formatDay(employee.admission_date.toString())}
                   </span>
                   <span className=" border-b border-b-gray-20/50 font-normal   border-dotted">
-                    {employee.phone}
+                    {formatNumberPhone(employee.phone.toString())}
                   </span>
                 </div>
               </div>

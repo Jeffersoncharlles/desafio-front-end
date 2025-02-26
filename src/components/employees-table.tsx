@@ -1,3 +1,6 @@
+import { IFetchAllEmployeesResponse } from "../services/fetch-all-employees";
+import { formatDay } from "../utils/format-day";
+import { formatNumberPhone } from "../utils/format-number-phone";
 import EmployeesRowMobile from "./employees-row-mobile";
 import {
   Table,
@@ -8,38 +11,20 @@ import {
   TableRow,
 } from "./ui/table";
 
-const EmployeesTable = () => {
-  const employees = [
-    {
-      photo: "https://via.placeholder.com/50",
-      name: "Giovana L. Arruda",
-      role: "Front-end",
-      admissionDate: "00/00/0000",
-      phone: "+55 (55) 55555-555",
-    },
-    {
-      photo: "https://via.placeholder.com/50",
-      name: "Vanessa Machado",
-      role: "Front-end",
-      admissionDate: "00/00/0000",
-      phone: "+55 (55) 55555-555",
-    },
-    {
-      photo: "https://via.placeholder.com/50",
-      name: "Juliana Borba",
-      role: "Front-end",
-      admissionDate: "00/00/0000",
-      phone: "+55 (55) 55555-555",
-    },
-  ];
+interface EmployeesTableProps {
+  employees: IFetchAllEmployeesResponse[];
+}
 
+//max-w-5xl  mx-auto mt-10 bg-white  rounded-lg shadow overflow-hidden
+
+const EmployeesTable = ({ employees }: EmployeesTableProps) => {
   return (
-    <div className="max-w-5xl  mx-auto mt-10 bg-white  rounded-lg shadow overflow-hidden">
+    <div className="max-w-5xl xs:min-w-[335px] mt-5 mx-auto md:mt-10 bg-white  rounded-lg shadow overflow-hidden">
       <div className="">
         <Table className="table-auto w-full border-collapse">
           <TableHeader className="bg-blue-primary text-white h-12 ">
             <TableRow className="">
-              <TableHead className="">FOTO</TableHead>
+              <TableHead className="w-[34px] md:w-auto">FOTO</TableHead>
               <TableHead className="">NOME</TableHead>
               <TableHead className="hidden md:table-cell">CARGO</TableHead>
               <TableHead className="hidden md:table-cell">
@@ -53,21 +38,25 @@ const EmployeesTable = () => {
           </TableHeader>
           {/* Tabela para telas grandes */}
           <TableBody className="hidden md:table-row-group">
-            {employees.map((employee, index) => (
-              <TableRow className="shadow" key={index}>
+            {employees.map((employee) => (
+              <TableRow className="shadow" key={employee.id}>
                 <TableCell className="text-center">
                   <div className="flex items-center">
                     <img
-                      src={employee.photo}
+                      src={employee.image}
                       alt={employee.name}
                       className="w-12 h-12 rounded-full "
                     />
                   </div>
                 </TableCell>
                 <TableCell>{employee.name}</TableCell>
-                <TableCell>{employee.role}</TableCell>
-                <TableCell>{employee.admissionDate}</TableCell>
-                <TableCell>{employee.phone}</TableCell>
+                <TableCell>{employee.job}</TableCell>
+                <TableCell>
+                  {formatDay(employee.admission_date.toString())}
+                </TableCell>
+                <TableCell>
+                  {formatNumberPhone(employee.phone.toString())}
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
