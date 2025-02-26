@@ -34,7 +34,7 @@ const EmployeesTable = () => {
   ];
 
   return (
-    <div className="max-w-5xl mx-auto mt-10 bg-white  rounded-lg shadow overflow-hidden">
+    <div className="max-w-5xl  mx-auto mt-10 bg-white  rounded-lg shadow overflow-hidden">
       <div className="">
         <Table className="table-auto w-full border-collapse">
           <TableHeader className="bg-blue-primary text-white h-12 ">
