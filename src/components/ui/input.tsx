@@ -9,7 +9,7 @@ const InputRoot = ({ error = false, ...rest }: InputRootProps) => {
   return (
     <div
       data-error={error}
-      className="bg-white group h-12 border border-gray-10 rounded-xl  px-4 flex items-center gap-2 focus-within:border-gray-20 data-[error=true]:border-danger"
+      className="bg-white group h-12 border border-gray-10 rounded-xl shadow-xl md:shadow-none  px-4 flex items-center gap-2 focus-within:border-gray-20 data-[error=true]:border-danger"
       {...rest}
     />
   );
