@@ -3,6 +3,8 @@ import { formatDay } from "../utils/format-day";
 import { formatNumberPhone } from "../utils/format-number-phone";
 import EmployeesRowMobile from "./employees-row-mobile";
 import EmployeesSkeleton from "./employees-skeleton";
+import Error from "./error";
+import NotSearch from "./not-search";
 
 import {
   Table,
@@ -22,25 +24,11 @@ interface EmployeesTableProps {
 //max-w-5xl  mx-auto mt-10 bg-white  rounded-lg shadow overflow-hidden
 
 const EmployeesTable = ({ employees, loading, error }: EmployeesTableProps) => {
-  if (loading) {
-    return <EmployeesSkeleton />;
-  }
+  if (loading) return <EmployeesSkeleton />;
 
-  if (error) {
-    return (
-      <div className="max-w-5xl xs:min-w-[335px] flex justify-center h-80 items-center mt-5 mx-auto md:mt-10   overflow-hidden">
-        <p className="text-danger text-2xl">Ocorreu um erro inesperado!</p>
-      </div>
-    );
-  }
+  if (error) return <Error />;
 
-  if (employees.length === 0) {
-    return (
-      <div className="max-w-5xl xs:min-w-[335px] flex justify-center h-80 items-center mt-5 mx-auto md:mt-10   overflow-hidden">
-        <p>Nenhum Resultado foi Encontrado!</p>
-      </div>
-    );
-  }
+  if (employees.length === 0) return <NotSearch />;
 
   return (
     <div className="max-w-5xl xs:min-w-[335px] mt-5 mx-auto md:mt-10 bg-white  rounded-lg shadow overflow-hidden">
