@@ -4,8 +4,13 @@ import ChevronDown from "../assets/chevro-down.svg";
 import ChevronUp from "../assets/chevron-up.svg";
 import { formatDay } from "../utils/format-day";
 import { formatNumberPhone } from "../utils/format-number-phone";
+import { IFetchAllEmployeesResponse } from "../services/fetch-all-employees";
 
-const EmployeesRowMobile = ({ employee }) => {
+interface IEmployeesRowMobileProps {
+  employee: IFetchAllEmployeesResponse;
+}
+
+const EmployeesRowMobile = ({ employee }: IEmployeesRowMobileProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (

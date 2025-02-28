@@ -10,24 +10,29 @@ export interface IFetchAllEmployeesResponse {
 }
 
 export const FetchAllEmployees = async (filter: string) => {
-  const response = await api.get<IFetchAllEmployeesResponse[]>(
-    `/employees?q=${filter}`,
-  );
+  try {
+    const response = await api.get<IFetchAllEmployeesResponse[]>(
+      `/employees?q=${filter}`,
+    );
 
-  if (response.data) {
-    if (filter) {
-      const filteredSearch = response.data.filter(
-        (employee) =>
-          employee.name.toLowerCase().includes(filter.toLowerCase()) ||
-          employee.job.toLowerCase().includes(filter.toLowerCase()) ||
-          employee.phone.includes(filter),
-      );
+    if (response.data) {
+      if (filter) {
+        const filteredSearch = response.data.filter(
+          (employee) =>
+            employee.name.toLowerCase().includes(filter.toLowerCase()) ||
+            employee.job.toLowerCase().includes(filter.toLowerCase()) ||
+            employee.phone.includes(filter),
+        );
 
-      return filteredSearch;
+        return filteredSearch.length > 0 ? filteredSearch : [];
+      }
     }
 
-    return response.data;
+    return response.data.length > 0 ? response.data : [];
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  } catch (error) {
+    return {
+      message: "Ocorreu um erro",
+    };
   }
-
-  return false;
 };

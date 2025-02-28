@@ -6,15 +6,12 @@ import {
   FetchAllEmployees,
   IFetchAllEmployeesResponse,
 } from "../services/fetch-all-employees";
-import EmployeesSkeleton from "../components/employees-skeleton";
 import { useDebounce } from "../hooks/useDebounce";
 
 const Employees = () => {
-  const [employees, setEmployees] = useState<
-    IFetchAllEmployeesResponse[] | undefined
-  >();
-
+  const [employees, setEmployees] = useState<IFetchAllEmployeesResponse[]>([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
   const [filter, setFilter] = useState("");
   const debouncedSearchTerm = useDebounce(filter, 500);
 
@@ -27,7 +24,14 @@ const Employees = () => {
       setIsLoading(true);
       const result = await FetchAllEmployees(debouncedSearchTerm);
 
-      if (result) {
+      if (!Array.isArray(result) && result.message) {
+        setError(result.message);
+
+        setIsLoading(false);
+        return;
+      }
+
+      if (Array.isArray(result)) {
         setEmployees(result);
       }
       setIsLoading(false);
@@ -49,11 +53,7 @@ const Employees = () => {
           </InputIcon>
         </InputRoot>
       </div>
-      {isLoading || !employees ? (
-        <EmployeesSkeleton />
-      ) : (
-        <EmployeesTable employees={employees} />
-      )}
+      <EmployeesTable employees={employees} loading={isLoading} error={error} />
     </div>
   );
 };
