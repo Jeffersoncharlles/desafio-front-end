@@ -77,6 +77,8 @@ Este projeto tem a função de mostrar a tabela de funcionários com dados deles
 
 ## Getting Started
 
+**Preview `Online`** &nbsp; [LINK AQUI](https://desafio-front-end-indol.vercel.app/)
+
 ### Prerequisites
 
 Antes de começar com o desafio-front-end, certifique-se de que seu ambiente de execução atenda aos seguintes requisitos:
