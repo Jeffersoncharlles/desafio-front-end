@@ -21,8 +21,6 @@ interface EmployeesTableProps {
   error: string;
 }
 
-//max-w-5xl  mx-auto mt-10 bg-white  rounded-lg shadow overflow-hidden
-
 const EmployeesTable = ({ employees, loading, error }: EmployeesTableProps) => {
   if (loading) return <EmployeesSkeleton />;
 
@@ -39,16 +37,17 @@ const EmployeesTable = ({ employees, loading, error }: EmployeesTableProps) => {
               <TableHead className="w-[34px] md:w-auto">FOTO</TableHead>
               <TableHead className="">NOME</TableHead>
               <TableHead className="hidden md:table-cell">CARGO</TableHead>
-              <TableHead className="hidden md:table-cell">
+              <TableHead className="hidden md:table-cell text-center">
                 DATA DE ADMISSÃO
               </TableHead>
-              <TableHead className="hidden md:table-cell">TELEFONE</TableHead>
+              <TableHead className="hidden md:table-cell text-center">
+                TELEFONE
+              </TableHead>
               <TableHead className="text-center table-cell  md:hidden">
                 *
               </TableHead>
             </TableRow>
           </TableHeader>
-          {/* Tabela para telas grandes */}
           <TableBody className="hidden md:table-row-group">
             {employees.map((employee) => (
               <TableRow className="shadow" key={employee.id}>
@@ -63,16 +62,15 @@ const EmployeesTable = ({ employees, loading, error }: EmployeesTableProps) => {
                 </TableCell>
                 <TableCell>{employee.name}</TableCell>
                 <TableCell>{employee.job}</TableCell>
-                <TableCell>
+                <TableCell className="text-center">
                   {formatDay(employee.admission_date.toString())}
                 </TableCell>
-                <TableCell>
+                <TableCell className="text-center">
                   {formatNumberPhone(employee.phone.toString())}
                 </TableCell>
               </TableRow>
             ))}
           </TableBody>
-          {/* Tabela para telas grandes */}
           <TableBody className="md:hidden">
             {employees.map((employee, index) => (
               <EmployeesRowMobile employee={employee} key={index} />

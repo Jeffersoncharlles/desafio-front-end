@@ -1,66 +1,135 @@
-# Teste Técnico Front-end BeTalent
+<div align="left" style="position: relative;">
 
-Este é um repositório para Testes Técnicos em Front-end da Be. Ele é destinado a pessoas que participam de nossos processos seletivos. 
+<h1>DESAFIO-FRONT-END</h1>
+<p align="left">
+  <img src="https://img.shields.io/github/license/Jeffersoncharlles/desafio-front-end?style=flat&logo=opensourceinitiative&logoColor=white&color=0080ff" alt="license">
+  <img src="https://img.shields.io/github/last-commit/Jeffersoncharlles/desafio-front-end?style=flat&logo=git&logoColor=white&color=0080ff" alt="last-commit">
+  <img src="https://img.shields.io/github/languages/top/Jeffersoncharlles/desafio-front-end?style=flat&color=0080ff" alt="repo-top-language">
+  <img src="https://img.shields.io/github/languages/count/Jeffersoncharlles/desafio-front-end?style=flat&color=0080ff" alt="repo-language-count">
+</p>
+<p align="left">Lista com ferramentas e tecnologias:</p>
+<p align="left">
+  <img src="https://img.shields.io/badge/npm-CB3837.svg?style=flat&logo=npm&logoColor=white" alt="npm">
+  <img src="https://img.shields.io/badge/HTML5-E34F26.svg?style=flat&logo=HTML5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/Prettier-F7B93E.svg?style=flat&logo=Prettier&logoColor=black" alt="Prettier">
+  <img src="https://img.shields.io/badge/JavaScript-F7DF1E.svg?style=flat&logo=JavaScript&logoColor=black" alt="JavaScript">
+  <img src="https://img.shields.io/badge/React-61DAFB.svg?style=flat&logo=React&logoColor=black" alt="React">
+  <br>
+  <img src="https://img.shields.io/badge/TypeScript-3178C6.svg?style=flat&logo=TypeScript&logoColor=white" alt="TypeScript">
+  <img src="https://img.shields.io/badge/Zod-3E67B1.svg?style=flat&logo=Zod&logoColor=white" alt="Zod">
+  <img src="https://img.shields.io/badge/Vite-646CFF.svg?style=flat&logo=Vite&logoColor=white" alt="Vite">
+  <img src="https://img.shields.io/badge/ESLint-4B32C3.svg?style=flat&logo=ESLint&logoColor=white" alt="ESLint">
+  <img src="https://img.shields.io/badge/Axios-5A29E4.svg?style=flat&logo=Axios&logoColor=white" alt="Axios">
+</p>
+</div>
+<br clear="right">
 
-Se você chegou até aqui por meio de um formulário de Teste Técnico, siga em frente. Caso contrário, acompanhe a BeTalent no [Linkedin](https://www.linkedin.com/company/betalenttech), [Instagram](https://www.instagram.com/betalent.tech/), [Facebook](https://web.facebook.com/bemobile.tech) ou na nossa newsletter [BeTalent Academy]([https://t.me/be_tech_community](https://beacademy.substack.com/)). Divulgamos novos processos seletivos por lá.
+## Sobre o projeto
 
-## Desafio
+Este projeto tem a função de mostrar a tabela de funcionários com dados deles onde contem as seguintes informações: imagem ,nome,cargo,data de admissão e telefone, como foi passado no figma do projeto tem responsividade os tokens de cores e o input de pesquisa onde pode ser pesquisado por nome, telefone e cargo .
 
-O Teste Técnico para Front-End da BeTalent consiste em construir a visualização de uma tabela com dados que virão de uma API simulada, em json-server.
+## Tabela de conteúdos
 
-### Mockup
+- [ Overview](#-overview)
+- [ Features](#-features)
+- [ Project Structure](#-project-structure)
+- [ Getting Started](#-getting-started)
+  - [ Prerequisites](#-prerequisites)
+  - [ Installation](#-installation)
+  - [ Usage](#-usage)
+- [ License](#-license)
 
-Este é o [projeto em Figma](https://www.figma.com/file/yw6th52zE9bubewc6ayTg5/Teste-T%C3%A9cnico-Front-End-Be.?type=design&node-id=1%3A4&mode=dev&t=vVxs9eyKybrYmq4Z-1) para você se orientar. Nele, você encontrará estilos, visualização desktop e mobile e outros padrões que deverá seguir.
+---
 
-### Requisitos Gerais
+## Estrutura do Projeto
 
-Deve-se utilizar React.js ou Vanilla JS (JavaScript puro) para construir o projeto.
+```sh
+└── desafio-front-end/
+    ├── README.md
+    ├── db.json
+    ├── eslint.config.js
+    ├── index.html
+    ├── package-lock.json
+    ├── package.json
+    ├── pnpm-lock.yaml
+    ├── public
+    │   └── vite.svg
+    ├── src
+    │   ├── assets
+    │   ├── components
+    │   ├── env
+    │   ├── hooks
+    │   ├── index.css
+    │   ├── lib
+    │   ├── main.tsx
+    │   ├── pages
+    │   ├── routes
+    │   ├── services
+    │   ├── utils
+    │   └── vite-env.d.ts
+    ├── tsconfig.app.json
+    ├── tsconfig.json
+    ├── tsconfig.node.json
+    └── vite.config.ts
+```
 
-É permitido utilizar libs externas, mas recomenda-se que seja o mínimo possível.
+---
 
-A visualização deve ser responsiva.
+## Getting Started
 
-A tabela deve conter as seguintes colunas:
+### Prerequisites
 
-- imagem (thumb do/a usuário/a);
-- nome;
-- cargo
-- data de admissão;
-- telefone.
+Antes de começar com o desafio-front-end, certifique-se de que seu ambiente de execução atenda aos seguintes requisitos:
 
-Também deve ser possível realizar pesquisa na tabela por meio de um input. O input de pesquisa deve permitir filtrar dados por cargo, nome e telefone.
+- **Programming Language:** TypeScript
+- **Package Manager:** Npm
 
-Datas e telefones devem ser formatadas no front-end e não na API.
+### Installation
 
-Tenha instaladas em sua máquina as ferramentas [Git](https://git-scm.com/), [Node.js](https://nodejs.org/en/) e [Yarn](https://yarnpkg.com/) (ou outro gerenciador de pacotes de sua preferência) para poder trabalhar no projeto.
+Instale o desafio-front-end usando um dos seguintes métodos:
 
-### Acesso aos dados da API simulada
+**Build from source:**
 
-Para ter acesso aos dados que alimentarão o projeto, faça o seguinte:
+1. Clonar o repositório desafio-front-end:
 
-1. caso você não tenha, instale o pacote [json-server](https://github.com/typicode/json-server);
-2. clone este repositório do GitHub em sua máquina: [https://github.com/BeMobile/desafio-front-end](https://github.com/BeMobile/desafio-front-end);
-3. entre na pasta do projeto, em sua máquina, e, por meio da linha de comando, execute o comando `json-server --watch db.json`, para consumir a API simulada;
-4. inicie a estrutura e o desenvolvimento do projeto.
+```sh
+❯ git clone https://github.com/Jeffersoncharlles/desafio-front-end
+```
 
-É necessário deixar o json-server rodando no terminal para que os dados sejam visualizados no projeto.
+2. Navegue até o diretório do projeto:
 
-Caso você tenha problemas com o json-server, tente rodá-lo com `npx json-server db.json` ou 
-com `yarn json-server <path>/db.json`, em que `<path>` é o caminho completo até o diretório em que o arquivo db.json está localizado. Se mesmo assim não funcionar, busque ajuda na web.
+```sh
+❯ cd desafio-front-end
+```
 
-### Critérios de Avaliação
+3. Instalar as dependências do projeto:
 
-Em ordem de relevância, avaliaremos:
+**Using `npm`** &nbsp; [<img align="center" src="https://img.shields.io/badge/npm-CB3837.svg?style={badge_style}&logo=npm&logoColor=white" />](https://www.npmjs.com/)
 
-1. lógica de programação;
-2. organização (do código e dos arquivos);
-3. CSS do projeto;
-4. README, que deve conter, pelo menos, as seguintes informações: sobre o projeto, pré-requisitos e instruções para rodar a aplicação.
+```sh
+❯ npm install
+```
 
-É um diferencial na avaliação o uso de TypeScript.
+### Usage
 
-### Envio da Solução
+Execute o modo de desenvolvimento desafio-front-end usando o seguinte comando:
+**Using `npm`** &nbsp; [<img align="center" src="https://img.shields.io/badge/npm-CB3837.svg?style={badge_style}&logo=npm&logoColor=white" />](https://www.npmjs.com/)
 
-O projeto deverá ser hospedado em um repositório no seu GitHub. O link do repositório deverá ser fornecido por meio do formulário de Teste Técnico encaminhado ao seu e-mail. Não serão aceitos links de projetos enviados por outros meios.
+```sh
+❯ npm run dev
+```
 
-Demais instruções e regras serão instruídas nos formulários e nas comunicações do processo seletivo do qual você está participando.
+### Server
+
+Execute o servidor json usando o seguinte comando:
+**Using `npm`** &nbsp; [<img align="center" src="https://img.shields.io/badge/npm-CB3837.svg?style={badge_style}&logo=npm&logoColor=white" />](https://www.npmjs.com/)
+
+```sh
+❯ npm run server
+```
+
+## License
+
+This project is protected under the [SELECT-A-LICENSE](https://choosealicense.com/licenses) License. For more details, refer to the [LICENSE](https://choosealicense.com/licenses/) file.
+
+---
